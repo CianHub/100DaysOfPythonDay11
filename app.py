@@ -11,22 +11,20 @@ class Stopwatch():
 
     def start_stopwatch(self):
         self._recorded_time = 0
-        return self.get_now()
-
-    def get_now():
         return datetime.now()
 
     def stop_stopwatch(self):
         if self._start_time is not None:
-            return self.get_now()
+            return datetime.now()
+
         else:
             return 'Stopwatch has not been started'
 
     def time_recorded(self):
-        try:
+        if self._start_time is not None and self._stop_time is not None:
             return (self._stop_time - self._start_time).total_seconds()
-        except ValueError:
-            print('Stopwatch was not recording')
+        else:
+            return 'Stopwatch was not recording'
 
 
 if __name__ == '__main__':
